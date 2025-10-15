@@ -1,0 +1,34 @@
+{
+    "KPlugin": {
+        "Authors": [
+            {
+                "Name": "besoeasy"
+            }
+        ],
+        "Category": "Utilities",
+        "Description": "KDE Plasma 6 crypto price tracker widget (plasmoid): live Bitcoin, Ethereum and Solana prices via CoinGecko, auto-refreshing every 15 minutes.",
+        "Icon": "currencies",
+        "Id": "com.besoeasy.cryptopricetracker",
+        "Keywords": [
+            "crypto",
+            "cryptocurrency",
+            "bitcoin",
+            "ethereum",
+            "solana",
+            "price",
+            "tracker",
+            "coingecko",
+            "plasmoid",
+            "plasma",
+            "kde",
+            "widget"
+        ],
+        "License": "GPL-3.0-or-later",
+        "Name": "Crypto Price Tracker",
+        "Version": "0.1.0",
+        "Website": "https://github.com/besoeasy/kde-widgets",
+        "BugReportUrl": "https://github.com/besoeasy/kde-widgets/issues"
+    },
+    "X-Plasma-API-Minimum-Version": "6.0",
+    "KPackageStructure": "Plasma/Applet"
+}

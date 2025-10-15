@@ -1,0 +1,31 @@
+{
+    "KPlugin": {
+        "Authors": [
+            {
+                "Name": "besoeasy"
+            }
+        ],
+        "Category": "Utilities",
+        "Description": "GitHub trending widget for KDE Plasma 6 (plasmoid): top starred repositories of the week, auto-refreshing, language filter.",
+        "Icon": "starred",
+        "Id": "com.besoeasy.githubtrendingrepos",
+        "Keywords": [
+            "github",
+            "trending",
+            "repositories",
+            "stars",
+            "developer",
+            "plasmoid",
+            "plasma",
+            "kde",
+            "widget"
+        ],
+        "License": "GPL-3.0-or-later",
+        "Name": "GitHub Trending Repos",
+        "Version": "0.1.0",
+        "Website": "https://github.com/besoeasy/kde-widgets",
+        "BugReportUrl": "https://github.com/besoeasy/kde-widgets/issues"
+    },
+    "X-Plasma-API-Minimum-Version": "6.0",
+    "KPackageStructure": "Plasma/Applet"
+}

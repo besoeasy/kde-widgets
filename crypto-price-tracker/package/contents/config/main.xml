@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kcfg xmlns="http://www.kde.org/standards/kcfg/1.0"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.kde.org/standards/kcfg/1.0 http://www.kde.org/standards/kcfg/1.0/kcfg.xsd">
+    <kcfgfile name=""/>
+    <group name="General">
+        <entry name="coinId" type="String">
+            <label>CoinGecko coin id (e.g. bitcoin, ethereum, solana)</label>
+            <default>bitcoin</default>
+        </entry>
+        <entry name="vsCurrency" type="String">
+            <label>Fiat currency (e.g. usd, eur, gbp)</label>
+            <default>usd</default>
+        </entry>
+        <entry name="refreshMinutes" type="Int">
+            <label>Refresh interval in minutes</label>
+            <default>15</default>
+        </entry>
+    </group>
+</kcfg>

@@ -1,0 +1,31 @@
+{
+    "KPlugin": {
+        "Authors": [
+            {
+                "Name": "besoeasy"
+            }
+        ],
+        "Category": "Utilities",
+        "Description": "Pomodoro focus timer widget for KDE Plasma 6 (plasmoid): configurable focus and break intervals with a panel countdown.",
+        "Icon": "chronometer",
+        "Id": "com.besoeasy.pomodorofocustimer",
+        "Keywords": [
+            "pomodoro",
+            "timer",
+            "focus",
+            "countdown",
+            "productivity",
+            "plasmoid",
+            "plasma",
+            "kde",
+            "widget"
+        ],
+        "License": "GPL-3.0-or-later",
+        "Name": "Pomodoro Focus Timer",
+        "Version": "0.1.0",
+        "Website": "https://github.com/besoeasy/kde-widgets",
+        "BugReportUrl": "https://github.com/besoeasy/kde-widgets/issues"
+    },
+    "X-Plasma-API-Minimum-Version": "6.0",
+    "KPackageStructure": "Plasma/Applet"
+}

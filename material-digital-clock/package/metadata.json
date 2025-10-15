@@ -1,0 +1,30 @@
+{
+    "KPlugin": {
+        "Authors": [
+            {
+                "Name": "besoeasy"
+            }
+        ],
+        "Category": "Utilities",
+        "Description": "Themed digital clock widget for KDE Plasma 6 (plasmoid): time and date for panel or desktop, 12/24-hour and seconds options.",
+        "Icon": "clock",
+        "Id": "com.besoeasy.materialdigitalclock",
+        "Keywords": [
+            "clock",
+            "time",
+            "date",
+            "digital-clock",
+            "plasmoid",
+            "plasma",
+            "kde",
+            "widget"
+        ],
+        "License": "GPL-3.0-or-later",
+        "Name": "Material Digital Clock",
+        "Version": "0.1.0",
+        "Website": "https://github.com/besoeasy/kde-widgets",
+        "BugReportUrl": "https://github.com/besoeasy/kde-widgets/issues"
+    },
+    "X-Plasma-API-Minimum-Version": "6.0",
+    "KPackageStructure": "Plasma/Applet"
+}

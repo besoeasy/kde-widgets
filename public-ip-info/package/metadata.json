@@ -1,0 +1,32 @@
+{
+    "KPlugin": {
+        "Authors": [
+            {
+                "Name": "besoeasy"
+            }
+        ],
+        "Category": "Utilities",
+        "Description": "IP and location widget for KDE Plasma 6 (plasmoid): public IP address, city and country, auto-refreshing.",
+        "Icon": "network-wired",
+        "Id": "com.besoeasy.publicipinfo",
+        "Keywords": [
+            "ip",
+            "location",
+            "geolocation",
+            "city",
+            "country",
+            "network",
+            "plasmoid",
+            "plasma",
+            "kde",
+            "widget"
+        ],
+        "License": "GPL-3.0-or-later",
+        "Name": "Public IP Info",
+        "Version": "0.1.0",
+        "Website": "https://github.com/besoeasy/kde-widgets",
+        "BugReportUrl": "https://github.com/besoeasy/kde-widgets/issues"
+    },
+    "X-Plasma-API-Minimum-Version": "6.0",
+    "KPackageStructure": "Plasma/Applet"
+}

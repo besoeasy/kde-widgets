@@ -1,0 +1,12 @@
+# Packaged widgets
+*.plasmoid
+*.zip
+
+# Editor / OS noise
+.vscode/
+.idea/
+*.swp
+.DS_Store
+
+# Generated widget previews (./generate-previews.sh)
+out/

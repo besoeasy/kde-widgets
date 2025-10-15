@@ -1,0 +1,30 @@
+{
+    "KPlugin": {
+        "Authors": [
+            {
+                "Name": "besoeasy"
+            }
+        ],
+        "Category": "Utilities",
+        "Description": "KDE Plasma 6 weather widget (plasmoid): current temperature and conditions via Open-Meteo, no API key, auto-refreshing.",
+        "Icon": "weather-clear",
+        "Id": "com.besoeasy.liveweatherreport",
+        "Keywords": [
+            "weather",
+            "forecast",
+            "temperature",
+            "open-meteo",
+            "plasmoid",
+            "plasma",
+            "kde",
+            "widget"
+        ],
+        "License": "GPL-3.0-or-later",
+        "Name": "Live Weather Report",
+        "Version": "0.1.0",
+        "Website": "https://github.com/besoeasy/kde-widgets",
+        "BugReportUrl": "https://github.com/besoeasy/kde-widgets/issues"
+    },
+    "X-Plasma-API-Minimum-Version": "6.0",
+    "KPackageStructure": "Plasma/Applet"
+}

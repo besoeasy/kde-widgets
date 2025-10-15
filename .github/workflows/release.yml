@@ -1,0 +1,119 @@
+# Manual release: Actions tab -> Release -> Run workflow.
+# Optionally pass a custom tag (default: YYYY.MM.DD, bare CalVer).
+# The same tag versions the .plasmoid bundles and the GitHub release.
+# Retention: only the newest 100 releases are kept, oldest pruned first.
+
+name: Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "Custom release tag (default: YYYY.MM.DD)"
+        required: false
+        default: ""
+
+permissions:
+  contents: write
+
+jobs:
+  validate:
+    name: Validate widget packages
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      # Single source of truth: the same checks contributors and CI run
+      # locally (metadata, structure, naming scheme, visual rules).
+      - name: Static checks
+        run: ./check.sh
+
+  release:
+    name: Build bundles, release and prune
+    needs: validate
+    runs-on: ubuntu-latest
+    # Serialize releases so two runs never claim the same date tag.
+    # (Scoped to this job so push/PR validation stays unblocked.)
+    concurrency:
+      group: release
+      cancel-in-progress: false
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Resolve release tag
+        id: tag
+        env:
+          INPUT_TAG: ${{ inputs.tag }}
+        run: |
+          set -e
+          if [ -n "$INPUT_TAG" ]; then
+            TAG="$INPUT_TAG"
+          else
+            TAG="$(date -u +%Y.%m.%d)"
+          fi
+          base="$TAG"
+          n=1
+          while git ls-remote --exit-code --tags origin "refs/tags/$TAG" >/dev/null 2>&1; do
+            n=$((n + 1))
+            TAG="${base}.${n}"
+          done
+          echo "tag=$TAG" >> "$GITHUB_OUTPUT"
+          echo "Resolved tag: $TAG"
+
+      - name: Build .plasmoid bundles
+        run: |
+          set -e
+          mkdir -p dist
+          for dir in */; do
+            if [ -f "${dir}package/metadata.json" ]; then
+              name="${dir%/}"
+              (cd "${dir}package" && zip -qr "../../dist/${name}.plasmoid" .)
+              echo "built dist/${name}.plasmoid"
+            fi
+          done
+          ls -l dist
+
+      - name: Create GitHub release with bundles
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TAG: ${{ steps.tag.outputs.tag }}
+        run: |
+          set -e
+          git fetch origin main --tags
+          SHA="$(git rev-parse origin/main)"
+          PREV="$(git describe --tags --abbrev=0 "$SHA" 2>/dev/null || true)"
+          if [ -n "$PREV" ]; then
+            NOTES="$(git log --format='- %h %s' "${PREV}..${SHA}")"
+          else
+            NOTES="$(git log --format='- %h %s' -10 "$SHA")"
+          fi
+          BUNDLES="$(cd dist && ls *.plasmoid | sed 's/^/- /')"
+          NOTES="${NOTES}"$'\n\n'"Widgets:"$'\n'"${BUNDLES}"
+          gh release create "$TAG" --target "$SHA" --title "$TAG" --notes "$NOTES" dist/*.plasmoid
+
+      - name: Prune old releases (keep newest $KEEP)
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          KEEP: 100
+        run: |
+          set -e
+          [[ "$KEEP" =~ ^[0-9]+$ ]] || { echo "Invalid KEEP: $KEEP" >&2; exit 1; }
+          mapfile -t OLD < <(gh release list --limit 1000 --json tagName,createdAt,isDraft \
+            --jq --argjson keep "$KEEP" '
+              map(select(.isDraft | not))
+              | sort_by(.createdAt)
+              | if length > $keep then .[0:(length - $keep)][].tagName else empty end') || true
+          if [ "${#OLD[@]}" -eq 0 ]; then
+            echo "Release count within retention ($KEEP); nothing to prune."
+            exit 0
+          fi
+          echo "Pruning ${#OLD[@]} release(s) older than newest $KEEP:"
+          printf '  %s\n' "${OLD[@]}"
+          for t in "${OLD[@]}"; do
+            gh release delete "$t" --yes --cleanup-tag
+          done
