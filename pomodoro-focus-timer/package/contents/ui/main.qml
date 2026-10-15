@@ -23,7 +23,7 @@ PlasmoidItem {
     property int phaseTotal: (root.phase === "focus" ? root.focusMinutes : root.breakMinutes) * 60
 
     // ----- Material shape scale (desktop-unit multiples, never fixed px) ---
-    readonly property int cardRadius: Math.round(Kirigami.Units.gridUnit * 1.15)
+    readonly property int cardRadius: Math.round(Kirigami.Units.gridUnit * 1.35)
     readonly property int badgeRadius: Math.round(Kirigami.Units.gridUnit * 0.65)
     readonly property int displaySize: Math.round(Kirigami.Theme.defaultFont.pointSize * 2.6)
     readonly property int hairline: Math.max(1, Math.round(Kirigami.Units.devicePixelRatio))
@@ -121,6 +121,17 @@ PlasmoidItem {
                 radius: parent.radius
                 color: Kirigami.Theme.highlightColor
                 opacity: 0.18
+            }
+            // Soft top elevation wash — gives the card a Pixel-style subtle lift.
+            Rectangle {
+                anchors.top: parent.top
+                anchors.left: parent.left
+                anchors.right: parent.right
+                height: parent.height * 0.55
+                radius: parent.radius
+                color: Kirigami.Theme.textColor
+                opacity: 0.05
+                clip: true
             }
 
             ColumnLayout {
