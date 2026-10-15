@@ -22,9 +22,9 @@ PlasmoidItem {
     property string dateText: ""
 
     // ----- Material shape scale (desktop-unit multiples, never fixed px) ---
-    readonly property int cardRadius: Math.round(Kirigami.Units.gridUnit * 0.6)
-    readonly property int badgeRadius: Math.round(Kirigami.Units.gridUnit * 0.35)
-    readonly property int displaySize: Math.round(Kirigami.Theme.defaultFont.pointSize * 2.2)
+    readonly property int cardRadius: Math.round(Kirigami.Units.gridUnit * 1.15)
+    readonly property int badgeRadius: Math.round(Kirigami.Units.gridUnit * 0.65)
+    readonly property int displaySize: Math.round(Kirigami.Theme.defaultFont.pointSize * 2.6)
     readonly property int hairline: Math.max(1, Math.round(Kirigami.Units.devicePixelRatio))
 
     toolTipMainText: timeText
@@ -76,7 +76,7 @@ PlasmoidItem {
     // ----- Expanded (desktop / popup): Material card -----------------------
     fullRepresentation: ColumnLayout {
         spacing: Kirigami.Units.largeSpacing
-        Layout.minimumWidth: Kirigami.Units.gridUnit * 14
+        Layout.minimumWidth: Kirigami.Units.gridUnit * 16
         Layout.margins: Kirigami.Units.largeSpacing
 
         Rectangle {
@@ -90,7 +90,7 @@ PlasmoidItem {
                 anchors.fill: parent
                 radius: parent.radius
                 color: Kirigami.Theme.highlightColor
-                opacity: 0.07
+                opacity: 0.11
             }
 
             ColumnLayout {

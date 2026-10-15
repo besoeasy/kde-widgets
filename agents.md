@@ -94,8 +94,9 @@ the role of Material's dynamic colour, and `Kirigami.Units` the role of dp.
 5. **Material type scale** — display (hero readout, ≈2.2× default, bold),
    title (headers, default size, bold), body (default size), label
    (metadata, `smallFont`, `neutralTextColor`).
-6. **Material shape scale** — card corners ≈ 0.6× `gridUnit`, icon-badge
-   corners ≈ 0.35× `gridUnit`, pills fully rounded (`radius` = `gridUnit`).
+6. **Material shape scale** — card corners ≈ 1.15× `gridUnit`, icon-badge
+   corners ≈ 0.65× `gridUnit`, pills fully rounded (`radius` = `gridUnit`).
+   Card tonal wash ≈ 0.11 `opacity` (Pixel-style, fully rounded).
    No shadows on the desktop; elevation is expressed through the tonal
    surface wash. Motion is a short fade (`NumberAnimation` with
    `Kirigami.Units.shortDuration`), e.g. list-row hover.
