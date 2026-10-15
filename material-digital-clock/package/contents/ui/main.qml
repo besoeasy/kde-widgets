@@ -90,7 +90,7 @@ PlasmoidItem {
                 anchors.fill: parent
                 radius: parent.radius
                 color: Kirigami.Theme.highlightColor
-                opacity: 0.11
+                opacity: 0.18
             }
 
             ColumnLayout {
@@ -105,14 +105,14 @@ PlasmoidItem {
                     Layout.fillWidth: true
 
                     Item {
-                        Layout.preferredWidth: Kirigami.Units.gridUnit * 2
-                        Layout.preferredHeight: Kirigami.Units.gridUnit * 2
+                        Layout.preferredWidth: Kirigami.Units.gridUnit * 2.2
+                        Layout.preferredHeight: Kirigami.Units.gridUnit * 2.2
 
                         Rectangle {
                             anchors.fill: parent
                             radius: root.badgeRadius
                             color: Kirigami.Theme.highlightColor
-                            opacity: 0.15
+                            opacity: 0.28
                         }
                         Kirigami.Icon {
                             anchors.fill: parent
@@ -154,7 +154,7 @@ PlasmoidItem {
                 // Hero readout.
                 PlasmaComponents.Label {
                     text: root.timeText
-                    color: Kirigami.Theme.textColor
+                    color: Kirigami.Theme.highlightColor
                     font.family: Kirigami.Theme.defaultFont.family
                     font.pointSize: root.displaySize
                     font.bold: true
