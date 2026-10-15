@@ -2,7 +2,7 @@
 # SPDX-FileCopyrightText: 2026 besoeasy
 # SPDX-License-Identifier: GPL-3.0-or-later
 #
-# generate-previews.sh — render every widget to PNG previews with Podman.
+# previews.sh — render every widget to PNG previews with Podman.
 #
 # Each widget is shown by plasmoivviewer inside a Plasma 6 container on a
 # virtual X display (Xvfb). plasmoivviewer renders the applet's full
@@ -11,7 +11,7 @@
 # just the widget, at its natural size, in light and dark themes.
 #
 # Usage:
-#   ./generate-previews.sh [options] [widget...]
+#   ./previews.sh [options] [widget...]
 #
 # Options:
 #   --themes "A B"   Plasma themes to render (default: "breeze-light breeze-dark")
@@ -95,7 +95,7 @@ RUN sed -i 's/^    SdkButtons {$/    SdkButtons {\n        visible: false/' \
 RUN f=/usr/share/plasma/shells/org.kde.plasma.plasmoidviewershell/contents/applet/CompactApplet.qml \
  && head -n -1 "$f" > "$f.tmp" \
  && printf '%s\n' \
-      '    // Auto-expand for preview capture (kde-widgets generate-previews.sh)' \
+      '    // Auto-expand for preview capture (kde-widgets previews.sh)' \
       '    Timer {' \
       '        interval: 250; repeat: true; running: true' \
       '        onTriggered: { if (root.plasmoidItem) { root.plasmoidItem.expanded = true; running = false; } }' \

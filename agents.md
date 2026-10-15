@@ -149,8 +149,8 @@ plasmoidviewer -a material-digital-clock/package
 
 # Render PNG previews of every widget into out/ (headless Plasma 6 in a
 # Podman container; light and dark, full representation; out/ is gitignored):
-./generate-previews.sh
-./generate-previews.sh --themes breeze-dark material-digital-clock
+./previews.sh
+./previews.sh --themes breeze-dark material-digital-clock
 
 # Install / upgrade locally (Plasma 6):
 kpackagetool6 --type Plasma/Applet --install material-digital-clock/package

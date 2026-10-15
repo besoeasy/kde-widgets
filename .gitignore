@@ -8,5 +8,5 @@
 *.swp
 .DS_Store
 
-# Generated widget previews (./generate-previews.sh)
+# Generated widget previews (./previews.sh)
 out/
