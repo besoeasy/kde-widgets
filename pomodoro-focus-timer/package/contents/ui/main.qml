@@ -3,6 +3,7 @@
 
 import QtQuick
 import QtQuick.Layouts
+import QtQuick.Effects
 import org.kde.plasma.plasmoid
 import org.kde.plasma.components as PlasmaComponents
 import org.kde.kirigami as Kirigami
@@ -27,6 +28,11 @@ PlasmoidItem {
     readonly property int badgeRadius: Math.round(Kirigami.Units.gridUnit * 0.65)
     readonly property int displaySize: Math.round(Kirigami.Theme.defaultFont.pointSize * 2.6)
     readonly property int hairline: Math.max(1, Math.round(Kirigami.Units.devicePixelRatio))
+    // Material 3 elevation, level 1 - desktop-unit multiples, never fixed px
+    readonly property int shadowBlur: Kirigami.Units.gridUnit * 3
+    readonly property int shadowOffsetY: Math.round(Kirigami.Units.gridUnit * 0.3)
+    readonly property int shadowBleed: Math.round(Kirigami.Units.gridUnit * 1.2)
+    readonly property real shadowOpacity: 0.22
     readonly property color phaseColor: root.phase === "focus" ? Kirigami.Theme.highlightColor : Kirigami.Theme.positiveTextColor
 
     toolTipMainText: phaseLabel() + " " + formatted()
@@ -110,29 +116,34 @@ PlasmoidItem {
         Layout.margins: Kirigami.Units.largeSpacing
 
         Rectangle {
+            id: card
             Layout.fillWidth: true
+            Layout.bottomMargin: root.shadowBleed
             implicitHeight: cardBody.implicitHeight + Kirigami.Units.largeSpacing * 2
             radius: root.cardRadius
-            color: Kirigami.Theme.backgroundColor
+            // Real Material surface: distinct from the desktop background so
+            // the card reads as an object rather than a flat wash.
+            color: Kirigami.Theme.alternateBackgroundColor
 
-            // Material tonal wash over the card surface.
+            // Material 3 level-1 elevation.
+            layer.enabled: true
+            layer.effect: MultiEffect {
+                shadowEnabled: true
+                shadowBlur: root.shadowBlur
+                shadowHorizontalOffset: 0
+                shadowVerticalOffset: root.shadowOffsetY
+                shadowColor: Kirigami.Theme.textColor
+                shadowOpacity: root.shadowOpacity
+            }
+
+            // Tonal surface tint (Material You dynamic colour over the card).
             Rectangle {
                 anchors.fill: parent
                 radius: parent.radius
                 color: Kirigami.Theme.highlightColor
-                opacity: 0.18
+                opacity: 0.06
             }
-            // Soft top elevation wash — gives the card a Pixel-style subtle lift.
-            Rectangle {
-                anchors.top: parent.top
-                anchors.left: parent.left
-                anchors.right: parent.right
-                height: parent.height * 0.55
-                radius: parent.radius
-                color: Kirigami.Theme.textColor
-                opacity: 0.05
-                clip: true
-            }
+
 
             ColumnLayout {
                 id: cardBody
