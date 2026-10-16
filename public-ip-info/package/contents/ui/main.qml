@@ -175,7 +175,8 @@ PlasmoidItem {
                             color: Kirigami.Theme.textColor
                             font.family: Kirigami.Theme.defaultFont.family
                             font.pointSize: Kirigami.Theme.defaultFont.pointSize
-                            font.bold: true
+                            font.weight: Font.Medium
+                            font.letterSpacing: 0.2
                             elide: Text.ElideRight
                             Layout.fillWidth: true
                         }
@@ -208,7 +209,7 @@ PlasmoidItem {
                             color: Kirigami.Theme.highlightColor
                             font.family: Kirigami.Theme.defaultFont.family
                             font.pointSize: Kirigami.Theme.smallFont.pointSize
-                            font.bold: true
+                            font.weight: Font.DemiBold
                         }
                     }
                 }
@@ -226,7 +227,8 @@ PlasmoidItem {
                     color: Kirigami.Theme.highlightColor
                     font.family: Kirigami.Theme.defaultFont.family
                     font.pointSize: root.displaySize
-                    font.bold: true
+                    font.weight: Font.DemiBold
+                    font.letterSpacing: -0.5
                     elide: Text.ElideRight
                     Layout.fillWidth: true
                 }
