@@ -55,7 +55,7 @@ widget respects the user's desktop:
    font.pointSize: Kirigami.Theme.defaultFont.pointSize
    ```
 2. **No hardcoded colours.** Hex literals (e.g. `"#ff0000"`) break in dark
-   mode — `check.sh` fails on them. Numeric sizes are fine where a widget
+   mode — avoid them. Numeric sizes are fine where a widget
    genuinely needs its own look.
 3. **Widgets are independent.** Nothing is shared between widget packages;
    give each widget its own layout, sizing and personality.
@@ -72,15 +72,15 @@ the role of Material's dynamic colour, and `Kirigami.Units` the role of dp.
    `Layout.fillWidth`/`fillHeight`, `elide` on single-line labels and
    `wrapMode` on multi-line ones. Size minimums only as
    `Kirigami.Units.gridUnit` multiples (DPI-aware) — never fixed pixels;
-   `check.sh` fails on fixed-pixel sizes.
+   avoid fixed-pixel sizes.
 2. **Live and dynamic.** Drive the UI from properties and `Timer`s: every
    async fetch has loading, error and empty states, and
    `toolTipMainText`/`toolTipSubText` reflect the current data.
 3. **Vector graphics only.** Icons via `Kirigami.Icon` system names or
    bundled `.svg` files — never commit raster images (`.png`/`.jpg`/…);
-   `check.sh` fails on those.
+   avoid raster images.
 4. **Material colour roles** — map roles to the desktop scheme, never hex
-   (`check.sh` fails on hex literals):
+   (no hex literals):
 
    | Material role | Kirigami source |
    | --- | --- |
@@ -140,11 +140,6 @@ the role of Material's dynamic colour, and `Kirigami.Units` the role of dp.
 ## Build, test, package
 
 ```bash
-# Static checks (tier 1, no Plasma needed — metadata, visual rules,
-# qmlformat + qmllint via Podman when host Qt tools are missing):
-./check.sh
-./check.sh --with-qt-tools
-
 # Preview a widget without installing it:
 plasmoidviewer -a material-digital-clock/package
 

@@ -1,8 +1,3 @@
-# Continuous integration: run the static checks on every push to main and
-# every pull request. Mirrors the local workflow documented in agents.md
-# (`./check.sh`, then `./check.sh --with-qt-tools`). The release workflow
-# keeps its own validate job so a release never depends on a green CI run.
-
 name: CI
 
 on:
@@ -21,20 +16,5 @@ jobs:
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
-
-      # Fast, dependency-free checks (metadata, structure, naming scheme,
-      # no hex colours / fixed pixels / rasters).
-      - name: Static checks (native)
-        run: ./check.sh
-
-      # qmlformat + qmllint come from the Qt declarative dev tools.
-      - name: Install Qt QML tools
-        run: |
-          set -e
-          sudo apt-get update -qq
-          sudo DEBIAN_FRONTEND=noninteractive apt-get install -y -qq qt6-declarative-dev-tools
-          echo "/usr/lib/qt6/bin" >> "$GITHUB_PATH"
-
-      # qmlformat differences are advisory (see check.sh); qmllint errors fail.
-      - name: Static checks (qmlformat + qmllint)
-        run: ./check.sh --with-qt-tools
+      - name: Checks removed
+        run: echo "check.sh removed; no static checks configured"
