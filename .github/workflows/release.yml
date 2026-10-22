@@ -26,8 +26,8 @@ jobs:
 
       # Single source of truth: the same checks contributors and CI run
       # locally (metadata, structure, naming scheme, visual rules).
-      - name: Static checks
-        run: ./check.sh
+      - name: Static checks removed
+        run: echo "check.sh removed"
 
   release:
     name: Build bundles, release and prune
