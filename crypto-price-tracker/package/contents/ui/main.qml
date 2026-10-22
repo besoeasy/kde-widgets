@@ -73,15 +73,27 @@ PlasmoidItem {
                 return;
             }
             root.loading = false;
+            if (xhr.status === 429) {
+                root.errorString = "Rate limited by CoinGecko, try again later";
+                return;
+            }
             if (xhr.status !== 200) {
                 root.errorString = "Request failed (HTTP " + xhr.status + ")";
                 return;
             }
             try {
                 var data = JSON.parse(xhr.responseText);
-                var entry = data[coin];
-                if (!entry || entry[vs] === undefined) {
-                    root.errorString = "Unexpected response";
+                if (data && data.status && data.status.error_code) {
+                    root.errorString = data.status.error_message || "CoinGecko error";
+                    return;
+                }
+                var entry = data ? data[coin] : undefined;
+                if (!entry) {
+                    root.errorString = "Unknown coin id: " + coin;
+                    return;
+                }
+                if (entry[vs] === undefined) {
+                    root.errorString = "Unsupported currency: " + vs.toUpperCase();
                     return;
                 }
                 root.priceText = formatPrice(Number(entry[vs]), vs);
