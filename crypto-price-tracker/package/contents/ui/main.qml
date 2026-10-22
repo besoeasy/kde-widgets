@@ -4,6 +4,7 @@
 import QtQuick
 import QtQuick.Layouts
 import QtQuick.Effects
+import org.kde.plasma.core as PlasmaCore
 import org.kde.plasma.plasmoid
 import org.kde.plasma.components as PlasmaComponents
 import org.kde.kirigami as Kirigami
@@ -11,7 +12,7 @@ import org.kde.kirigami as Kirigami
 PlasmoidItem {
     id: root
 
-    preferredRepresentation: compactRepresentation
+    preferredRepresentation: plasmoid.formFactor === PlasmaCore.Types.Planar ? fullRepresentation : compactRepresentation
 
     // ----- State ---------------------------------------------------------
     property string coinId: plasmoid.configuration.coinId || "bitcoin"
