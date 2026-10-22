@@ -17,21 +17,8 @@ permissions:
   contents: write
 
 jobs:
-  validate:
-    name: Validate widget packages
-    runs-on: ubuntu-latest
-    steps:
-      - name: Check out repository
-        uses: actions/checkout@v4
-
-      # Single source of truth: the same checks contributors and CI run
-      # locally (metadata, structure, naming scheme, visual rules).
-      - name: Static checks removed
-        run: echo "check.sh removed"
-
   release:
     name: Build bundles, release and prune
-    needs: validate
     runs-on: ubuntu-latest
     # Serialize releases so two runs never claim the same date tag.
     # (Scoped to this job so push/PR validation stays unblocked.)
