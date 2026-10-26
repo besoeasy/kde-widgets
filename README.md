@@ -1,5 +1,7 @@
 # KDE Plasma 6 Widgets
 
+[![Star History Rank](https://api.star-history.com/badge?repo=besoeasy/kde-widgets&type=rank)](https://www.star-history.com/besoeasy/kde-widgets)
+
 Themed [KDE Plasma 6](https://kde.org/plasma-desktop/) widgets (plasmoids) for
 the Linux desktop, built with Qt 6, QML and Kirigami.
 
@@ -42,6 +44,10 @@ Humans and AI coding agents alike — contributions are welcome. Start with
 [`agents.md`](agents.md): one installable `package/` per widget, each widget
 with its own styling, `PlasmoidItem` root, config in `main.xml`.
 Copy `material-digital-clock/`, give it a `com.besoeasy.<name>` id, and build.
+
+## Star History
+
+[![Star History Chart](https://api.star-history.com/chart?repos=besoeasy/kde-widgets&type=date&legend=top-left)](https://www.star-history.com/?repos=besoeasy%2Fkde-widgets&type=date&legend=top-left)
 
 ## Licence
 
