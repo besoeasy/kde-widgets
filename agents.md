@@ -169,6 +169,7 @@ CI runs both check commands on every push to `main` and every pull request
 
 ## Status
 
-Six widgets are implemented (`crypto-price-tracker`,
+Eight widgets are implemented (`crypto-price-tracker`,
 `material-digital-clock`, `live-weather-report`, `pomodoro-focus-timer`,
-`github-trending-repos`, `public-ip-info`), each with its own styling.
+`github-trending-repos`, `public-ip-info`, `air-quality-index`,
+`moon-phase-tracker`), each with its own styling.

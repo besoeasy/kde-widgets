@@ -37,6 +37,8 @@ Prefer bundles by hand? Grab them from [Releases](../../releases).
 | [pomodoro-focus-timer](pomodoro-focus-timer/) | Pomodoro focus timer with configurable focus/break intervals and a panel countdown. | [pomodoro-focus-timer.plasmoid](https://github.com/besoeasy/kde-widgets/releases/latest/download/pomodoro-focus-timer.plasmoid) |
 | [github-trending-repos](github-trending-repos/) | Trending GitHub repos of the week, with language filter, refreshes every 60 minutes. | [github-trending-repos.plasmoid](https://github.com/besoeasy/kde-widgets/releases/latest/download/github-trending-repos.plasmoid) |
 | [public-ip-info](public-ip-info/) | Public IP address, city and country, refreshes every 60 minutes. | [public-ip-info.plasmoid](https://github.com/besoeasy/kde-widgets/releases/latest/download/public-ip-info.plasmoid) |
+| [air-quality-index](air-quality-index/) | Current US AQI and pollutant levels via Open-Meteo (no API key), refreshes every 30 minutes. | [air-quality-index.plasmoid](https://github.com/besoeasy/kde-widgets/releases/latest/download/air-quality-index.plasmoid) |
+| [moon-phase-tracker](moon-phase-tracker/) | Current lunar phase, illumination and days to next full/new moon, computed locally. | [moon-phase-tracker.plasmoid](https://github.com/besoeasy/kde-widgets/releases/latest/download/moon-phase-tracker.plasmoid) |
 
 ## Vibe coders welcome
 

@@ -1,0 +1,33 @@
+{
+    "KPlugin": {
+        "Authors": [
+            {
+                "Name": "besoeasy"
+            }
+        ],
+        "Category": "Utilities",
+        "Description": "KDE Plasma 6 air quality widget (plasmoid): current US AQI and pollutant levels via Open-Meteo, no API key, auto-refreshing.",
+        "Icon": "weather-clear",
+        "Id": "com.besoeasy.airqualityindex",
+        "Keywords": [
+            "air",
+            "quality",
+            "aqi",
+            "pollution",
+            "pm2.5",
+            "pm10",
+            "open-meteo",
+            "plasmoid",
+            "plasma",
+            "kde",
+            "widget"
+        ],
+        "License": "GPL-3.0-or-later",
+        "Name": "Air Quality Index",
+        "Version": "0.1.0",
+        "Website": "https://github.com/besoeasy/kde-widgets",
+        "BugReportUrl": "https://github.com/besoeasy/kde-widgets/issues"
+    },
+    "X-Plasma-API-Minimum-Version": "6.0",
+    "KPackageStructure": "Plasma/Applet"
+}

@@ -1,0 +1,31 @@
+{
+    "KPlugin": {
+        "Authors": [
+            {
+                "Name": "besoeasy"
+            }
+        ],
+        "Category": "Utilities",
+        "Description": "KDE Plasma 6 moon phase widget (plasmoid): current lunar phase, illumination and days to next full/new moon, computed locally.",
+        "Icon": "weather-clear-night",
+        "Id": "com.besoeasy.moonphasetracker",
+        "Keywords": [
+            "moon",
+            "lunar",
+            "phase",
+            "illumination",
+            "astronomy",
+            "plasmoid",
+            "plasma",
+            "kde",
+            "widget"
+        ],
+        "License": "GPL-3.0-or-later",
+        "Name": "Moon Phase Tracker",
+        "Version": "0.1.0",
+        "Website": "https://github.com/besoeasy/kde-widgets",
+        "BugReportUrl": "https://github.com/besoeasy/kde-widgets/issues"
+    },
+    "X-Plasma-API-Minimum-Version": "6.0",
+    "KPackageStructure": "Plasma/Applet"
+}
